@@ -1,2 +1,2 @@
 # avtoProject
-// описание проекта и как его запускать
+// this project description
