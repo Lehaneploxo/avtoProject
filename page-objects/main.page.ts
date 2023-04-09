@@ -1,6 +1,8 @@
-import Button from '../lib/elements/button.js'
+import {Button} from '../lib/elements/button'
 
 class MainPage {
+  private aboutSushi: Button
+
   constructor() {
     this.aboutSushi = new Button('.top_nav [href="/page/about/"]', 'Sushi button')
   }
@@ -10,4 +12,4 @@ class MainPage {
   }
 }
 
-export default new MainPage()
+export {MainPage}

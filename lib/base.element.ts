@@ -1,4 +1,7 @@
 class BaseElement {
+  private selector: string
+  private name: string
+
   constructor(selector, name) {
     this.selector = selector;
     this.name = name;
@@ -23,4 +26,4 @@ class BaseElement {
   }
 }
 
-export default BaseElement
+export {BaseElement}
