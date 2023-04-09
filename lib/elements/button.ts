@@ -1,4 +1,4 @@
-import BaseElement from '../base.element.js'
+import {BaseElement} from '../base.element'
 
 class Button extends BaseElement {
   constructor(selector, name) {
@@ -6,4 +6,4 @@ class Button extends BaseElement {
   }
 }
 
-export default Button
+export {Button}
