@@ -2,7 +2,7 @@ class BaseElement {
   private selector: string
   private name: string
 
-  constructor(selector, name) {
+  constructor(selector: string, name: string) {
     this.selector = selector;
     this.name = name;
   }

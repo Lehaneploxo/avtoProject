@@ -150,6 +150,6 @@ export const config = {
         transpileOnly: true,
         project: '../tsconfig.json'
     }
-}
+  }
 }
 
