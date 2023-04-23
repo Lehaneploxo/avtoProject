@@ -1,7 +1,7 @@
-import {BaseElement} from '../base.element'
+import {BaseElement} from '../base.element.js'
 
 class Button extends BaseElement {
-  constructor(selector, name) {
+  constructor(selector: string, name: string) {
     super(selector, name)
   }
 }
