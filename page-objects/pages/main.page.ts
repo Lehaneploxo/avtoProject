@@ -12,6 +12,8 @@ interface IMainPageClick {
   menu?: null
   novelties?: null
   popular?: null
+  downloadPDFmenu?: null
+  heart?: null
 }
 
 interface IMainPage {
@@ -29,6 +31,8 @@ class MainPage extends BasePage {
   private menu: Button
   private novelties: Button
   private popular: Button
+  private downloadPDFmenu: Button
+  private heart: Button
 
   constructor() {
     super('body', 'Bento main page')
@@ -42,7 +46,8 @@ class MainPage extends BasePage {
     this.menu = new Button('.catalogBlock', 'Menu button')
     this.novelties = new Button('#tab-1', 'Novelties button')
     this.popular = new Button('#tab-2', 'Popular button')
-    
+    this.downloadPDFmenu = new Button('.contactCenterBtn', 'Download the PDF menu button') // see line 41
+    this.heart = new Button('.fa-heart-o', 'heart button')
   }
 }
 
