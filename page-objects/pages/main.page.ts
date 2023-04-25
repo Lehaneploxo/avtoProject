@@ -12,7 +12,7 @@ interface IMainPageClick {
   menu?: null
   novelties?: null
   popular?: null
-  downloadPDFmenu?: null
+  downloadPDFMenu?: null
   heart?: null
 }
 
@@ -31,7 +31,7 @@ class MainPage extends BasePage {
   private menu: Button
   private novelties: Button
   private popular: Button
-  private downloadPDFmenu: Button
+  private downloadPDFMenu: Button
   private heart: Button
 
   constructor() {
@@ -46,7 +46,7 @@ class MainPage extends BasePage {
     this.menu = new Button('.catalogBlock', 'Menu button')
     this.novelties = new Button('#tab-1', 'Novelties button')
     this.popular = new Button('#tab-2', 'Popular button')
-    this.downloadPDFmenu = new Button('.contactCenterBtn', 'Download the PDF menu button') // see line 41
+    this.downloadPDFMenu = new Button('.contactCenterBtn', 'Download the PDF menu button') 
     this.heart = new Button('.fa-heart-o', 'heart button')
   }
 }
