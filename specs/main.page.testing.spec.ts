@@ -5,15 +5,15 @@ describe('Main page testing', () => {
 
   it('Should go to main page', async () => {
     await browser.url('/')
-    await mainPage.click({aboutSushi: null, instruction: null})
+    await mainPage.click({topSection: {aboutSushi: null}})
   });
 
   it('Should go to main page', async () => {
     await browser.url('/')
-    await mainPage.click({oplata: null, instruction: null})
+    await mainPage.click({topSection: {oplata: null}})
   });
 
-  it.only('Should go to main page', async () => {
+  it('Should go to main page', async () => {
     await browser.url('/')
     await mainPage.click({heart: null})
   });

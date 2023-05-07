@@ -1,8 +1,8 @@
 import {BaseElement} from '../base.element.js'
 
 class Button extends BaseElement {
-  constructor(selector: string, name: string) {
-    super(selector, name)
+  constructor(parentElement: () => WebdriverIO.Element, selector: string, name: string) {
+    super(parentElement, selector, name)
   }
 }
 
