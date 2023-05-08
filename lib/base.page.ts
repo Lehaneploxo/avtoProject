@@ -1,22 +1,28 @@
+import {waiter} from "./utils/waiter.js";
+
 class BasePage {
   private selector: string;
   private name: string;
+  private element: WebdriverIO.Element
+  protected pageRootElement: () => WebdriverIO.Element
 
   constructor(selector: string, name: string) {
     this.selector = selector;
     this.name = name;
+    this.pageRootElement = this.getCurrnetPageElement.bind(this)
   }
 
-  get element() {
-    return $(this.selector);
+  private async setCurrentPageElement() {
+    this.element = await $(this.selector)
+  }
+
+  protected getCurrnetPageElement(): WebdriverIO.Element {
+    return this.element
   }
 
   async click(data: object): Promise<void> {
-    await this.element.waitForDisplayed({
-      timeout: 10000,
-      interval: 1000,
-      timeoutMsg: `Page by selector: "${this.selector}" and name: ${this.name} is not displayed.`,
-    });
+    await this.setCurrentPageElement()
+    await waiter.waitForDisplayed(this)
 
     for (const key of Object.keys(data)) {
       if (!this[key]) {

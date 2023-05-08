@@ -1,27 +1,37 @@
+import {waiter} from "./utils/waiter.js";
+
 class BaseElement {
   private selector: string
   private name: string
+  private element: WebdriverIO.Element
+  private parentElement: () => WebdriverIO.Element
 
-  constructor(selector: string, name: string) {
+  constructor(parentElement: () => WebdriverIO.Element, selector: string, name: string) {
     this.selector = selector;
     this.name = name;
+    this.parentElement = parentElement;
   }
 
-  get element() {
-    return $(this.selector);
+  private async setCurrenElement() {
+    this.element = await this.parentElement().$(this.selector)
+  }
+
+  protected getCurrnetElement(): WebdriverIO.Element {
+    return this.element
+  }
+
+  private async waitDisplayed() {
+    await waiter.waitForDisplayed(this)
+  }
+
+  private async waitClickable() {
+    await waiter.waitForClickable(this)
   }
 
   async click() {
-    await this.element.waitForDisplayed({
-      timeout: 10000,
-      interval: 1000,
-      timeoutMsg: `Element by selector: "${this.selector}" and name: ${this.name} is not displayed.`,
-    });
-    await this.element.waitForClickable({
-      timeout: 10000,
-      interval: 1000,
-      timeoutMsg: `Element by selector: "${this.selector}" and name: ${this.name} is not clickable.`,
-    })
+    await this.setCurrenElement()
+    await this.waitDisplayed()
+    await this.waitClickable()
     await this.element.click()
   }
 }
